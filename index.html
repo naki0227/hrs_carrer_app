@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>キャリアバイト｜稼ぐ時間が、将来につながる。</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#233b48;background:#f8fbfc}
+*{box-sizing:border-box}body{margin:0;line-height:1.65}button,input,select,textarea{font:inherit}
+button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #ffba70}
+header{background:white;border-bottom:1px solid #dbe7ed;position:sticky;top:0;z-index:3}
+header .inner{max-width:1120px;padding:16px 24px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.logo{font-size:20px;font-weight:850;letter-spacing:-.04em}.logo em{font-style:normal;color:#2997bd}
+nav{display:flex;gap:8px}nav button{border:1px solid #d7e4eb;background:white;border-radius:9px;padding:9px 16px;color:#48606e}
+nav button.active{background:#256e91;color:white;border-color:#256e91}
+main{max-width:1120px;padding:38px 24px 90px;margin:auto}
+h1{font-size:clamp(29px,4.7vw,46px);line-height:1.35;letter-spacing:-.04em;margin:6px 0 14px}
+h2{font-size:22px;letter-spacing:-.025em;margin:0 0 13px}h3{font-size:19px;margin:10px 0 7px}
+p{margin:0 0 12px}.eyebrow{font-size:12px;color:#317ea0;font-weight:800;letter-spacing:.1em}
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:center;margin-bottom:34px}
+.hero p{color:#587080;font-size:16px}.schedule{background:#e6f3f8;padding:24px;border-radius:15px;box-shadow:inset 0 0 0 1px #d3e8f1}
+.schedule strong{display:block;margin-bottom:10px}.days{display:flex;gap:7px;margin-bottom:12px}.day{background:white;flex:1;min-height:80px;border-radius:9px;padding:12px 8px;text-align:center;font-size:13px}.day b{display:block;color:#185e83;font-size:18px}.day.office{background:#fcefdc}
+.note{font-size:12px;color:#6b7f89}.filters{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+input,select,textarea{border:1px solid #d7e3e8;border-radius:9px;padding:11px 13px;background:white;color:inherit;min-width:0}
+.filters input{flex:1;min-width:210px}.filters select{width:175px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:white;border:1px solid #e0e9ee;border-radius:13px;padding:21px;display:flex;flex-direction:column;gap:8px;min-height:260px}
+.company{font-weight:750;color:#446277;font-size:13px}.muted{color:#6e828f;font-size:13px}.tag{display:inline-block;align-self:start;color:#236f91;background:#e6f3f8;border-radius:5px;padding:3px 9px;font-size:12px;font-weight:700}
+.desc{color:#607481;font-size:13px;flex:1}.salary{font-size:18px;font-weight:800}
+.primary{background:#247d9f;color:white;border:1px solid #247d9f;padding:10px 18px;border-radius:9px;font-weight:700}.primary:hover{background:#166384}
+.secondary{background:white;color:#247d9f;border:1px solid #8dbbcb;padding:10px 18px;border-radius:9px;font-weight:700}
+.card button{width:100%;margin-top:7px}
+.panel{background:white;border:1px solid #dce7ec;border-radius:14px;padding:24px}
+.panel p{color:#587080}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{display:grid;gap:5px}.field label{font-size:13px;font-weight:700}
+.field.full{grid-column:1/-1}textarea{resize:vertical;min-height:90px}
+.preview{margin-top:22px;padding:22px;background:#eff7fa;border:1px solid #d0e6ed;border-radius:12px}
+.preview strong{display:block;font-size:19px;margin-bottom:7px}.preview span{display:block;color:#557280}
+footer{padding:20px 24px;background:white;border-top:1px solid #e0e9ee;color:#778b94;font-size:12px;text-align:center}
+[hidden]{display:none!important}
+dialog{border:1px solid #dae6eb;border-radius:16px;padding:26px;max-width:490px;width:calc(100% - 32px);box-shadow:0 16px 70px #183b4733}
+dialog::backdrop{background:#173a4b77}dialog .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cards,.form-grid{grid-template-columns:1fr}.hero{gap:16px}.schedule{padding:16px}.day{min-height:65px}header .inner{padding:13px 17px}main{padding:26px 17px 70px}}
+</style>
+</head>
+<body>
+<header><div class="inner"><div class="logo">career<em>baito.</em></div><nav aria-label="利用する画面"><button type="button" id="studentTab" class="active" aria-pressed="true">学生向け</button><button type="button" id="companyTab" aria-pressed="false">企業向け</button></nav></div></header>
+<main>
+<section id="studentView">
+<div class="hero">
+<div><div class="eyebrow">アルバイト × 社員の仕事体験</div><h1>稼ぐ時間が、<br>将来につながる。</h1><p>いつものバイトに、社員の仕事を体験する日をプラス。給与をもらいながら、やりたいことを見つけよう。</p><button class="primary" type="button" id="findButton">仕事をさがす</button></div>
+<div class="schedule"><strong>週3日の働き方（例）</strong><div class="days"><div class="day"><b>月</b>現場業務</div><div class="day"><b>水</b>現場業務</div><div class="day office"><b>金</b>社員業務</div></div><div class="note">3日とも有給。学業に合わせて調整できます。</div></div>
+</div>
+<section id="jobsSection"><div class="eyebrow">FIND YOUR WORK</div><h2>未来につながる仕事を探そう</h2><div class="filters"><input id="search" type="search" placeholder="企業名・仕事内容で検索" aria-label="求人の検索"><select id="category" aria-label="業種"><option value="">すべての職種</option><option value="企画">企画・マーケティング</option><option value="人事">人事・採用</option><option value="営業">営業</option><option value="IT">IT・デザイン</option></select></div><div class="cards" id="jobCards" aria-live="polite"></div></section>
+</section>
+<section id="companyView" hidden>
+<div class="eyebrow">FOR COMPANIES</div><h1>現場人材を採りながら、<br>未来の社員を育てる。</h1><p style="color:#617987;max-width:680px;margin-bottom:24px">通常のアルバイトに、実際の社員業務とメンターによる振り返りを組み合わせる募集を作成できます。</p>
+<div class="panel"><h2>募集プログラムをつくる</h2>
+<form id="programForm" class="form-grid">
+<div class="field"><label for="company">企業名（架空データ）</label><input id="company" required maxlength="60" value="みらいリテール株式会社"></div>
+<div class="field"><label for="jobTitle">募集タイトル</label><input id="jobTitle" required maxlength="90" value="店舗からマーケティングを学ぶキャリアバイト"></div>
+<div class="field"><label for="wage">時給（円）</label><input id="wage" type="number" min="1000" max="10000" required value="1350"></div>
+<div class="field"><label for="fieldDays">週の現場日数</label><select id="fieldDays"><option value="2" selected>2日</option><option value="1">1日</option><option value="0">0日</option><option value="3">3日</option></select></div>
+<div class="field"><label for="officeDays">週の社員業務日数</label><select id="officeDays"><option value="1" selected>1日</option><option value="2">2日</option><option value="3">3日</option><option value="0">0日（掲載不可）</option></select></div>
+<div class="field"><label for="mentor">社員メンター</label><input id="mentor" required maxlength="50" value="マーケティング部・田中（架空）"></div>
+<div class="field full"><label for="task">体験する社員業務・実務課題</label><textarea id="task" required maxlength="350">店舗の売上データを基に、販促施策の改善案を社員と作成します。月1回のフィードバックがあります。</textarea></div>
+<div class="field full"><button class="primary" type="submit">求人プレビューを更新</button></div>
+</form>
+<div class="preview" id="programPreview" role="status" aria-live="polite"><strong>店舗からマーケティングを学ぶキャリアバイト</strong><span>みらいリテール株式会社｜現場2日＋社員業務1日｜時給1,350円</span></div>
+<p class="note" style="margin-top:12px">※ これは募集作成イメージです。実際の掲載・応募受付は行いません。時給の適法性は地域・勤務条件により別途確認が必要です。</p>
+</div>
+</section>
+</main>
+<dialog id="jobDialog" aria-labelledby="dialogTitle"><div class="eyebrow">CAREER BAITO</div><h2 id="dialogTitle"></h2><p id="dialogCompany"></p><p id="dialogDetails"></p><p id="dialogTask"></p><div class="actions"><button id="applyButton" type="button" class="primary">応募する（デモ）</button><button id="closeButton" type="button" class="secondary">閉じる</button></div></dialog>
+<footer>コンセプトデモ｜掲載企業・求人・募集条件はすべて架空です。公式の求人サイトではありません。</footer>
+<script>
+(function(){
+'use strict';
+var jobs=[
+{id:1,company:'みらいリテール',title:'店舗から商品企画に挑戦',category:'企画',location:'大阪 / 店舗＋本部',wage:1350,field:2,office:1,task:'店舗で働きながら、売れ筋商品の分析と季節の販促企画に参加。'},
+{id:2,company:'青空ホテルグループ',title:'ホテル現場×採用人事',category:'人事',location:'京都 / ホテル＋オフィス',wage:1280,field:2,office:1,task:'フロント業務を経験し、社員と一緒に採用イベントの企画を考えます。'},
+{id:3,company:'ステップフーズ',title:'飲食スタッフから営業企画へ',category:'営業',location:'東京 / 店舗＋本社',wage:1400,field:2,office:1,task:'店舗の接客を学んだあと、法人営業の提案資料作りを体験します。'},
+{id:4,company:'ノーステック',title:'Web制作の長期実務体験',category:'IT',location:'リモート可',wage:1500,field:0,office:3,task:'デザイナーのメンターと一緒に、実際のWebサイト改善に挑戦します。'}
+];
+var viewStudent=document.getElementById('studentView');
+var viewCompany=document.getElementById('companyView');
+function switchRole(company){
+viewStudent.hidden=company;viewCompany.hidden=!company;
+document.getElementById('studentTab').classList.toggle('active',!company);
+document.getElementById('companyTab').classList.toggle('active',company);
+document.getElementById('studentTab').setAttribute('aria-pressed',String(!company));
+document.getElementById('companyTab').setAttribute('aria-pressed',String(company));
+window.scrollTo(0,0);
+}
+document.getElementById('studentTab').addEventListener('click',function(){switchRole(false)});
+document.getElementById('companyTab').addEventListener('click',function(){switchRole(true)});
+document.getElementById('findButton').addEventListener('click',function(){document.getElementById('jobsSection').scrollIntoView({behavior:'smooth'})});
+function element(tag,klass,content){var e=document.createElement(tag);if(klass)e.className=klass;if(content!==undefined)e.textContent=content;return e;}
+function renderJobs(){
+var term=document.getElementById('search').value.trim().toLowerCase();
+var category=document.getElementById('category').value;
+var target=document.getElementById('jobCards');target.replaceChildren();
+var matches=jobs.filter(function(j){return (!category||j.category===category)&&(!term||(j.title+j.company+j.task).toLowerCase().includes(term))});
+if(!matches.length){target.append(element('p','muted','条件に合う求人がありません。'));return;}
+matches.forEach(function(j){
+var card=element('article','card');card.append(element('div','company',j.company),element('span','tag',j.category),element('h3','',j.title),element('div','muted',j.location));
+card.append(element('p','desc',j.task),element('div','salary','時給 '+j.wage.toLocaleString('ja-JP')+'円'),element('div','muted','現場'+j.field+'日＋社員業務'+j.office+'日 / 週'));
+var button=element('button','secondary','詳しく見る');button.type='button';button.addEventListener('click',function(){openJob(j)});
+card.append(button);target.append(card);
+});
+}
+var dialog=document.getElementById('jobDialog');var chosen=null;
+function openJob(j){chosen=j;
+document.getElementById('dialogTitle').textContent=j.title;
+document.getElementById('dialogCompany').textContent=j.company+'｜'+j.location;
+document.getElementById('dialogDetails').textContent='時給'+j.wage.toLocaleString('ja-JP')+'円 / 現場'+j.field+'日・社員業務'+j.office+'日（週）';
+document.getElementById('dialogTask').textContent=j.task;
+dialog.showModal();
+}
+document.getElementById('closeButton').addEventListener('click',function(){dialog.close()});
+document.getElementById('applyButton').addEventListener('click',function(){if(!chosen)return;dialog.close();alert('「'+chosen.company+'」への応募イメージです。実際の送信はされません。')});
+document.getElementById('search').addEventListener('input',renderJobs);
+document.getElementById('category').addEventListener('change',renderJobs);
+document.getElementById('programForm').addEventListener('submit',function(event){
+event.preventDefault();
+var field=Number(document.getElementById('fieldDays').value);
+var office=Number(document.getElementById('officeDays').value);
+var wage=Number(document.getElementById('wage').value);
+if(!office||field+office>5||wage<1000){alert('社員業務を1日以上含め、週の合計5日以内・時給1,000円以上のデモ条件にしてください。');return;}
+var company=document.getElementById('company').value.trim();
+var title=document.getElementById('jobTitle').value.trim();
+var task=document.getElementById('task').value.trim();
+var mentor=document.getElementById('mentor').value.trim();
+if(!company||!title||!task||!mentor){alert('必須項目を入力してください。');return;}
+var box=document.getElementById('programPreview');box.replaceChildren();
+box.append(element('strong','',title),element('span','',company+'｜現場'+field+'日＋社員業務'+office+'日｜時給'+wage.toLocaleString('ja-JP')+'円'),element('p','',task+' / 指導担当：'+mentor));
+jobs[0]={id:1,company:company,title:title,category:'企画',location:'企業が作成したデモ求人',wage:wage,field:field,office:office,task:task};
+renderJobs();
+alert('募集プレビューを更新しました。学生向け画面にも反映されます（このページを閉じると元に戻ります）。');
+});
+renderJobs();
+})();
+</script>
+</body>
+</html>
