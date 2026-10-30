@@ -2,7 +2,7 @@
 :root{--ink:#233642;--text:#344954;--muted:#73848b;--line:#dbe4e7;--soft:#f3f8f9;--blue:#248bae;--blue-quiet:#e7f4f8;--orange:#c47745;--white:#fff;--shadow:0 12px 35px rgba(40,66,78,.08)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.65;font-size:14px}
+body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;line-height:1.7;font-size:16px}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 button:disabled{cursor:not-allowed;opacity:.5}
@@ -237,3 +237,57 @@ h2{font-size:19px}
 }
 @media(max-width:420px){.wrap{padding-left:15px;padding-right:15px}.brand-type small{font-size:8px}.role-switch button{padding:6px 7px}.job-title{font-size:14px}.section-heading{flex-wrap:wrap}.week-plan .day{padding:8px 6px;font-size:10px}.week-plan .day b{font-size:11px}.modal-dialog{padding:26px 20px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* site-skills の読みやすさ基準を反映：本文16px以上、補足13px以上。 */
+.lead,.prose,.job-desc,.reflection p,.feature-row p,.milestone p,
+.timeline-item p,.note,.detail-aside p,.preview-panel p{font-size:16px;line-height:1.8}
+.job-company,.job-meta,.small,.muted,.subheading,.section-note,.hint,
+.form-help,.job-list .job-meta,.job-row-actions,.filter-hint,.status,
+.preview-point,.stat-label,.stat-foot,.feature-row .small,
+.site-footer,.demo-label,.sidebar-label,.eyebrow,.sidebar-guide p,
+.stat-foot,.detail-aside .small{font-size:13px;line-height:1.7}
+.field label,.spec-list dt,.spec-list dd,.table-wrap,.data-table,
+.brand-type small,.breadcrumb,.timeline-item time,.reflection-top,
+.reflection .reflection-top,.milestone label,.guide-glyph{font-size:14px}
+.btn,.btn.small,.role-switch button,.side-nav button,.link-button,
+.text-button,.mobile-nav button,.sidebar-guide strong{font-size:14px}
+.pill{font-size:13px}
+.search-line input,.search-line select,.form-grid input,.form-grid select,
+.form-grid textarea,.modal-form input,.modal-form select,.modal-form textarea{font-size:16px}
+.job-title{font-size:19px}
+h3{font-size:19px}
+.stat-value{font-size:27px}
+.site-footer{color:#697f89}
+#sort{font-size:14px}
+.modal-dialog{font-size:16px}
+.job-row{align-items:center}
+.side-nav button{padding:12px}
+.sidebar-guide{padding-top:22px}
+.section{margin-top:36px}
+@media(max-width:760px){
+ body{font-size:16px}
+ .main-content{padding-top:26px}
+ h1{font-size:28px}
+ h2{font-size:22px}
+ h3{font-size:18px}
+ .job-title{font-size:18px}
+ .hero .lead{font-size:16px}
+ .job-row{align-items:start}
+ .job-meta{gap:7px 13px}
+ .mobile-nav{padding-bottom:13px}
+ .mobile-nav button{font-size:13px;line-height:1.2}
+ .mobile-nav button b{font-size:20px}
+ .role-switch button{font-size:13px}
+ .stat-label,.stat-foot{font-size:13px}
+ /* テーブルをスマホでは2列の情報行に変え、横スクロールをなくす */
+ .table-wrap{overflow:visible}
+ .data-table{min-width:0;display:block}
+ .data-table thead{display:none}
+ .data-table tbody{display:block}
+ .data-table tr{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;padding:17px 0;border-bottom:1px solid var(--line)}
+ .data-table td{display:block;border:0;padding:0!important;overflow-wrap:anywhere;font-size:14px}
+ .data-table td:first-child{grid-column:1/-1;font-size:16px}
+ .data-table td:last-child{justify-self:end}
+ .data-table .name{font-size:16px}
+}
