@@ -1,42 +1,50 @@
-# キャリアバイト｜HTMLモック
+# キャリアバイト — 発表用デモ
 
-アルバイトで稼ぎながら、社員業務も経験できる「キャリアバイト」の**発表用コンセプトデモ**です。
+アルバイトで収入を得ながら、社員の仕事も経験できる求人サービスの**架空デモ**です。
+
+**公開サイト：** https://hrs-carrer-app.pages.dev/
+
+## できること
+
+**学生向け**
+- 地域・職種・キーワードで求人を探す
+- 求人詳細で時給、週の勤務配分、現場業務・社員業務、担当社員、実務課題を見る
+- 求人を保存し、デモ応募する（外部送信なし）
+- 応募状況や活動ノート、実務の進み具合を確認する
+
+**企業向け**
+- 募集中の求人、応募者を確認する
+- 現場・社員業務の配分、時給、指導担当、実務課題を編集し、学生側へ反映する
+- 架空の応募者の進捗・評価を更新する
+- 募集案を新規追加する
 
 ## 動かし方
 
-[`index.html`](./index.html) をダウンロードしてブラウザで開くだけです。ライブラリの導入・ビルド・サーバーは不要です。
+`index.html` をブラウザで開きます。ビルド不要、依存ライブラリなし。
+静的ファイルは `assets/style.css`、`assets/mock-data.js`、`assets/app.js` です。
 
-- 学生画面：架空の求人検索、仕事の詳細、保存、応募のデモ
-- 企業画面：週の現場業務と社員業務の配分を設定した募集案のプレビュー
+学生・企業切替は右上。学生の応募、企業の編集、活動ノートは**閲覧中のブラウザの localStorage** にだけ残ります。左の「デモデータを初期化」で元に戻せます。
 
-※架空データのみ。応募内容は外部へ送信されません。HRソリューションズ公式サービスではありません。
+企業名・求人・応募者はすべて架空です。採用や応募を送信するAPIはありません。HRS公式のサービスではありません。
 
-## 大切な仕様
+## 企画で確かめたいこと
 
-社員業務も有給、担当者・実務課題・振り返りのある募集を想定します。現場2日・社員業務1日は例で、企業に合わせて変更できます。
+- 週2日は現場、週1日は社員業務といった働き方が、学生にとって普通のアルバイトの代わりになりそうか
+- 会社が「社員業務の1日」を具体的な有給業務として設計できるか
+- 企業側が学生の経験を評価でき、学生側も就職前に仕事を理解できるか
 
-※ 検証用の単一HTMLのため継続運用CIは未整備です。本格MVPに移行する際はセキュリティ・アクセシビリティ・テスト・CIを設計します。
+デザインは [site-skills](https://github.com/naki0227/site-skills) のAIらしさのチェックを参照。管理画面に専用スキルがないため、SaaSのチェック項目のうち本文16px、補足13px、文字・色の役割、余計なカードを避ける指針を適用しています。
 
-## Cloudflare Pages で公開する
+## Cloudflare Pages
 
-このリポジトリはルートに `index.html` がある、ビルド不要の静的サイトです。
+GitHubの `main` を連携済みなら、そのまま自動デプロイされます。
 
-1. [Cloudflare Dashboard の Workers & Pages](https://dash.cloudflare.com/?to=/:account/workers-and-pages) で「Create application」→「Pages」→「Connect to Git」（または「Import an existing Git repository」）を選択します。
-2. GitHubを認可し、リポジトリ `naki0227/hrs_carrer_app` を選択します。
-3. 次の設定でデプロイします。
-
-| 項目 | 設定 |
+| 設定 | 値 |
 | --- | --- |
-| Framework preset | None（なし） |
-| Production branch | `main` |
-| Build command | 空欄（求められれば `exit 0`） |
-| Build output directory | `.`（リポジトリ直下） |
-| Root directory | `/`（デフォルト） |
-| Environment variables | 不要 |
+| Framework | None |
+| Build command | 空欄 |
+| Output directory | `.` |
+| Root | リポジトリ直下 |
+| Branch | `main` |
 
-成功するとCloudflareが `*.pages.dev` URLを発行します。以後、`main` へのPushで自動更新されます。
-
-**注意：** GitHubとCloudflareのアカウント連携・初回プロジェクト作成は、Cloudflareにログインした利用者自身の操作が必要です。デモにはダミー求人しかなく、応募の外部送信も行いません。
-
-- [Cloudflare公式：静的HTML](https://developers.cloudflare.com/pages/framework-guides/deploy-anything/)
-- [Cloudflare公式：GitHub連携](https://developers.cloudflare.com/pages/get-started/git-integration/)
+※本格MVPに進む際は認証・企業ごとの権限分離・労務管理・個人情報・CI・自動テストが必要です。**このデモには実データを入力しないでください。**
